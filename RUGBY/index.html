@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rugby Cepav</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      color: #333333;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #003300;
+      padding: 20px;
+      color: #ffffff;
+      text-align: center;
+      position: relative;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 32px;
+      text-align: left;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border-radius: 4px;
+      border: 1px solid #cccccc;
+      font-size: 16px;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #003300;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #003300;
+      padding: 20px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    /* Media queries para tornar o site responsivo */
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .search-bar input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .search-bar button {
+        width: 100%;
+      }
+
+      img {
+        border-radius: 4px;
+      }
+    }
+
+    /* Modo Claro e Escuro */
+
+   
+
+    body[data-theme="dark"] {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+
+    header[data-theme="dark"] {
+      background-color: #004d00;
+    }
+
+    nav ul li a[data-theme="dark"] {
+      color: #f5f5f5;
+    }
+
+    footer[data-theme="dark"] {
+      background-color: #004d00;
+    }
+
+    /* Estilos para a Área de Contato */
+
+    .contact-area {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #003300;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .contact-area:hover {
+      opacity: 0.8;
+    }
+
+    .contact-form {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 4px;
+      width: 300px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h3 {
+      margin-top: 0;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #cccccc;
+      margin-bottom: 10px;
+    }
+
+    .contact-form button {
+      padding: 10px 20px;
+      background-color: #003300;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const header = document.querySelector('header');
+      const navLinks = document.querySelectorAll('nav ul li a');
+      const footer = document.querySelector('footer');
+
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        header.setAttribute('data-theme', 'light');
+        navLinks.forEach(link => link.setAttribute('data-theme', 'light'));
+        footer.setAttribute('data-theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        header.setAttribute('data-theme', 'dark');
+        navLinks.forEach(link => link.setAttribute('data-theme', 'dark'));
+        footer.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    function toggleContactForm() {
+      const contactForm = document.querySelector('.contact-form');
+      contactForm.style.display = contactForm.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <style>
+      .imagem-titulo {
+          width: 170px;
+          height: auto;
+      }
+  </style>
+</head>
+<body>
+  <h1><img src="https://stackblitz.com/storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN1Q3QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--4ffe3b5c51e253165bf332bdb5e0472ec4a5a548/20230630_084553.png.jpg" alt="Imagem do título" class="imagem-titulo"></h1>
+    <button onclick="toggleTheme()" style="position: absolute; top: 20px; right: 19px;"><div class="luaesol">
+      <div class="lua"></div>
+      <div class="sol"></div>
+    </div>
+    <style>
+      .botao {
+        display: inline-block;
+        padding: 09px 19px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+    
+      .botao:hover {
+        background-color: #555;
+      }
+    </style>
+    
+    <a href="#" class="botao">Escuro
+    Claro
+    </a>
+    
+    </button>
+
+   
+    
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar...">
+      <button type="submit">Buscar</button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">
+          <title>Exemplo de botão com ícone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        
+        .button i {
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="button"><i class="fas fa-home"></i></button>
+</body>> </a></li>
+       
+        <li><a href="#">
+         
+          <title>Exemplo de ícone de globo terrestre</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+          
+      </head>
+      <body>
+          <i class="fas fa-globe"></i>
+      </body> </a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+
+    <style>
+      .sombra {
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        padding: 10px;
+      }
+    </style>
+       
+
+
+      
+
+
+    <section>
+      <h2>RUGBY CEPAV</h2>
+
+      <p class="sombra">Não é de hoje que sabemos que a humanidade está em constante evolução, a cada dia surge algo novo por isso sempre desejamos estar atualizados, assim descartando algo que não nos é mais útil, mas se pararmos para analisar a história da humanidade existe algo ou acontecimentos que mesmo tendo se passado quase duzentos anos desde sua criação não foi esquecido e mantém seus valores tradicionais.
+      No campo dos esportes coletivos temos grandes exemplos como o basquete, vôlei e futebol que apesar de terem sidos criados a tanto tempo, pessoas do mundo inteiro param para ver seu país ou seu time de coração competir, mas esses jogos nem sempre foram assim pois ao decorrer do tempo modificações acabaram sendo realizadas em suas regras, resultando no que vemos     ou jogamos nos dias de hoje.  Os esportes são locais para a geração de excitação prazerosa, amizade e sociabilidade. Eles são uma grande invenção coletiva, que consegue com sucesso resolver a aparente contradição entre rivalidade e amizade. Pode-se dizer que os esportes são formas de “rivalidade amistosa”, e como tais, são extremamente valiosos. (Gastaldo, 2008, p. 227).
+      Mas  existe um jogo que no seu início suas regras foram definidas por alunos em um ambiente escolar. Parece inacreditável pensar que estudantes teriam criado as primeiras regras  de um jogo que no futuro ficaria conhecido em varias partes do mundo, esse jogo e     o rugby, conhecido como o esporte da bola oval. Quase 200 anos após sua criação, o Rugby é atualmente o segundo esporte mais praticado em todo mundo, perdendo apenas para o futebol, que também teve sua origem na Inglaterra. (Internacional Rugby Board, 2008).
+      <br><br>
+      Os esportes coletivos são práticas de atividades físicas realizadas por duas ou mais pessoas, formando assim uma equipe. Elas são organizadas por regras e têm um objetivo específico, o que configura seu caráter competitivo. Assim, um time, geralmente, ganha e o outro perde, salvo os casos de empate. Essa prática promove a interação entre os alunos no sentido de cooperação e competição. O esporte escolar é baseado na formação de valores, atitudes, viabilidades, variadas formas de comunicação, linguagem motora, respeito e cognitivo (Mattos, 2006.
+      <br><br>
+      O rugbi se diferencia dos outros esportes coletivos pela sua diversidade de regras e técnicas, utilizando no jogo tanto as mãos como os pés e a corrida pra frente e pra trás, outra característica única do rugby e que na mesma  equipe, existem uma diversidade de biótipo de jogadores nas posições, podendo ser baixo, alto, rápido, forte, explosivo e resistente, não se prezando pelo estereótipo de atleta ideal, com todos os jogadores da equipe exercendo funções diferenciadas, mas   com importância coletiva em prol do desenvolvimento do jogo.
+      <br><br>
+      O rugby é um esporte víril e truculento, de um forte contato físico, mas apresenta conceitos sociais e emocionais como coragem, lealdade, espírito esportivo e de equipe, favore a inclusão e a aceitação da diferença, todos são necessãrios, todos são implortantes, independentemente das características físicas, culturais e do gênero, permite a convivência ativa, dando condições de êxito a todos. O rugby ajuda a trabalhar habilidades cognitivas, amplia o respeito ao corpo, aumenta a autoestima e o equilíbrio emocional.  O esporte é multidimensional e faz parte da cultura mundial, tendo sua importância no processo de formação humana amplamente ressaltada por proporcionar benefícios físicos, psicológicos e sociais (SERPA, 2003; COSTA; NASCIMENTO, 2004; MILISTETD et al., 2008).
+      <br><br>
+      O rugby segue um código de ética baseado em cinco valores, que são fielmente seguidos e que se resumem na sigla DRIPS (Disciplina, Respeito, Integridade, Paixão e Solidariedade).
+      <br><br>
+      O rugby, enquanto modalidade coletiva que privilegia em primeiro lugar o jogo em equipe, incute acima de todos os outros, os valores do companheirismo e da amizade em todos os alunos, valores que permitem que outros valores rapidamente se apresentem, como os valores da partilha e da responsabilidade coletiva.
+      <br><br>
+      O rugby pela sua diferença de biótipo de jogadores, muitas vezes não aceitáveis em outros esportes, proporciona a inclusão, integração e acessibilidade no ambiente escolar, proporcionando aqueles alunos sem características de atleta poderem participar das atividades coletivas através do jogo de rugby que oportuniza a participação de todos, independente do aspecto físico. Os princípios do rugby são os elementos fundamentais sobre os quais o jogo se baseia e eles permitem aos participantes imediatamente identificarem o caráter do jogo, e o que o distingue como um esporte que é praticado por pessoas de todos os biótipos, idades e gêneros.
+      </p>
+
+     
+     
+      <section>
+      <img src="https://stackblitz.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdzM1QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--39393ef343aa47390e4df06324bb69ea97c37440/Captura%20de%20tela%202023-06-29%20111217.png.jpg" alt="Imagem de Rugby">
+     
+    </section>
+
+
+    <section>
+      <h2> O QUE É RUGBY </h2>
+      
+      <p class="sombra">O objetivo principal é fazer um try, que consiste em passar com a bola através da linha de  fundo e encostá-la no chão, o lance que vale mais pontos no jogo, o rugby não se trata de um jogo que se deﬁne apenas a força bruta é preciso uma grande variedade de estratégias, Rugby, ou rúgbi, é um jogo em que uma bola oval é conduzida pelos pés ou pelas mãos dos jogadores até a linha de fundo do campo, onde há uma trave semelhante  a a um H.
+      Trata-se de um esporte que exige muita resistência, estratégia e habilidade dos seus jogadores.
+      O Rugby é, em termos gerais,  um esporte de disputa territorial. Duas equipes de 15 jogadores cada devem tomar a bola através de passes e ir conquistando esses territórios. Também conta com 8 reservas. O objetivo principal do jogo é ultrapassar a linha de in-goal, onde ficam os postes, e apoiar a bola no chão. Ganha quem fizer mais pontos.
+      As vestimentas dos jogadores de rugby, além do uniforme tradicional de jogo,  são usados apenas proteções flexíveis, feitas geralmente de tecido, espuma ou borracha. Algumas delas são obrigatórias.
+      Chuteira - Utiliza-se chuteiras exclusivas do esporte, com travas maiores.
+      Shoulder pad - Espécie de colete com partes amaciadas pelos ombros e pelo torso.
+      Mordedora - Proteção para os dentes.
+      Scrum cap - Espécie de chapéu com partes amaciadas pelo crânio, geralmente é usada apenas por jogadores que entram no scrum.
+      
+      
+      
+      </p>
+      <img src="https://stackblitz.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM2FyQmc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--101bf2911dc1c760bf10a7fe6a3a8e44eb962a2b/imagem45830_1%20-%20Editado.jpg" alt="Imagem de Rugby">
+    </section>
+
+    <section>
+      <h2>ORIGEM DO RUGBY</h2>
+      
+      <p class="sombra">
+      Existem vários relatos diferentes de sua origem. Um deles seria que o esporte derivou se do chamado Harpastum, jogo praticado pelos romanos na antiguidade, como cita alguns autores: Ateneu e Galeno. Em seguida, na Itália, por volta de 1580, existia o Calcio, que para os celtas era Caid, esporte muito similar ao Rúgbi.
+      <br><br>
+      Mas de acordo com a Federação Internacional de Rugby a sua origem data     de 1823, na Rugby School, localizada em Rugby na Inglaterra - daí o nome do esporte. O responsável pelo surgimento do esporte é William Webb Ellis que fez algo diferente do que faziam normalmente todos no jogo do football na sua escola, ele correu com a bola nas mãos, em vez de chutá-la, como todos costumavam fazer habitualmente. 
+      <br><br>
+      As Leis do rugby são desenvolvidas com dois princípios centrais em mente: primeiro, permitir que os jogadores joguem dentro do espírito do jogo e, segundo, proteger o bem-estar de todos os jogadores. (Internacional Rugby Board, 2008)</p>
+      <img src="https://stackblitz.com/storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM1dyQmc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f104e3e2ae45153f12f7fbfe82834848b2940757/skysports-australia-tupou_4390640%20-%20Editado.jpg" alt="Imagem de Rugby">
+    </section>
+
+    <section>
+      <h2> HISTÓRIA DO RUGBY </h2>
+      
+      <p class="sombra">A história do rugby e surpreendente, no início não tinham regras escritas dos jogos com bola. As regras eram orais e cada escola tinha mais ou menos a sua forma de jogar. William Webb Ellis fez algo diferente do que faziam na sua escola, ele correu com a bola nas mãos, em vez de chutá-la, como  todos se costumavam a fazer.
+      Durante um jogo de football na Rugby School, localizada na cidade de Rugby, Inglaterra, correu agarrado a bola infringindo a regra que era pegá-la com as mãos para depois chutar. Apesar de ter ocorrido em 1823, o episódio só foi aceito como o nascimento do esporte no ano de 1880, oito anos após o falecimento do autor da jogada.
+      <br><br>
+      Em 1871 surgiu a Rugby Football Union (RFU), na Inglaterra - uma entidade responsável pela organização do rugby, seguindo-se a criação de entidades semelhantes em outros países.
+      <br><br>
+      A primeira disputa internacional,  em 1881, foi entre Inglaterra e Escócia, em  que os escoceses foram os vencedores. O rugby sofreu várias alterações ao longo dos anos. Uma das mais importantes diz respeito à pontuação. Desde 1992 o try vale 5 pontos, mas no  início, não valia nenhum, e somente em 1886 ele começou a valer, mas apenas 1 ponto. Hoje, o try é o lance que é melhor pontuado. Rugby é um jogo altamente físico. Para aproveitá-lo ao máximo, você precisa estar fisicamente e mentalmente preparado. Você também precisa entender como jogar com segurança. (Internacional Rugby Board, 2008)
+      
+      </p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbNH2uLtnJMLJu47h6Cfh2WeQQthqUkEabhQ&usqp=CAU" alt="Imagem de Rugby">
+    </section>
+
+    <h2>RUGBY NO BRASIL  </h2>
+      
+    <p class="sombra">No Brasil, o primeiro registro da prática do rugby data de 1891 com a fundação do Clube Brasileiro de Futebol Rugby, no Rio de Janeiro. Em 1895, o  rugby começou a ser jogado em São Paulo por iniciativa de Charles Miller, o mesmo que desenvolveu também o futebol na cidade, dentro do São Paulo Athletic Club (SPAC).
+    <br><br>
+    O esporte não é popular no Brasil, por isso, muitos brasileiros desconhecem as regras. Algumas pessoas até o comparam ao futebol americano (que é originário do rugby), mas existem diferenças grandes entre os dois esportes, a mais básica refere-se ao passe com as mãos, que pode ser para frente no futebol americano.
+    Porém, hoje, considera-se que o rugby já é praticado em todos os 26 estados brasileiros e no Distrito Federal, onde possui Ligas Regionais e também Campeonatos Estaduais em grande parte dos estados.
+    .</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC0Ggp428gIydYvvZ9FnEp_9PxamVU8ewhjg&usqp=CAU" alt="Imagem de Rugby">
+    </section>
+
+    <h2>Hino do Rugby</h2>
+   
+    <p class="sombra">No calor da batalha você tem uma oportunidade.
+    Uma batalha contra si mesmo.
+    Ou uma batalha contra os outros.
+    Integridade, paixão, disciplina, solidariedade e respeito.
+    Enfrentar seus medos de cabeça.
+    Um por todos e todos por um.
+    Sucesso e honra vem de determinação e sacrifício.
+    Mente, corpo e espírito disciplinados.
+    Carregando as esperanças da nação.
+    Como um distintivo de orgulho.
+    Inspirando tudo com seu espírito de luta.
+    Transformando a luta na alegria da vitória.
+    Uma alegria que não tem preço.
+    No entanto no final, existem apenas vencedores.
+    Sem lado.
+    O vínculo que une e nunca quebra.
+    Um novo desafio virá, uma chance de ser vitorioso.
+    Todo dia é único.
+    Todo jogo é uma vez na vida.
+    Uma vez é a vida.
+    O tempo da vida é único.
+    
+    </p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVhR73pjkty5c466KdDzmKiypnWxjDLYt8AU8JiGmEiOojEQrthCvpZbykOjYj46f37JQ&usqp=CAU" alt="Imagem de Rugby">
+  </section>
+
+    <section>
+      <h2> Regras do jogo de rugby</h2>
+      
+      <p class="sombra">O rugby é jogado em um campo com 100m de extensão por 70m de largura.  .  A partida é dividida em dois tempos com duração de 40min ou 7min cada, variando conforme o tipo do jogo (Union ou Sevens). Esses são aspectos básicos do rugby. Entretanto, para compreender melhor a dinâmica desse esporte é preciso entender algumas regras fundamentais. 
+      O primeiro conceito que se deve aprender no rugby é o da linha imaginária da bola; é ela quem separa os dois times nos seus lados no campo.
+      Se algum jogador do time estiver a frente da linha da bola (ou seja, no lado do adversário), ele é, na maioria das vezes, considerado fora de jogo e qualquer passe irregular para ele será considerado penalidade.
+      Por essa razão, o jogador que está portando a bola é quem deve, em regra, avançar para o ataque. 
+      <br><br>
+      A pontuação no rugby
+      <br><br>
+      Se no básico as regras do rugby se aproximam das do futebol, na pontuação o paralelo mais óbvio é com o futebol americano. Há um gol que precisa ser superado, uma região que precisa ser alcançada, até o direito de um chute complementar pós-pontuação
+      <br><br>
+      Como fazer pontos?
+      <br><br>
+      O try, que consiste em passar a linha do gol (linha do H) da equipe adversária  a ﬁm de colocar a bola no chão, é a jogada que vale mais pontos.
+      Ao marcar um try, a equipe garante o direito de chutar entre as traves, o que  vale dois pontos. É a chamada conversão.
+      Outro momento em que a equipe tem a possibilidade de chutar para a trave é  no chute de penalidade, que vale 3 pontos. Isso acontece quando uma falta grave é cometida contra a equipe e o jogador chuta a partir do local em que ocorreu a infração.
+      Por ﬁm, o drop goal vale 3 pontos, e consiste em bater a bola no chão e chutar  para a trave,   que deve passar por cima do travessão horizontal, no decorrer do jogo
+      .</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO4SM2P3ZxUrDlu-4RYdDSMen7BQPPYZ1RjA&usqp=CAU" alt="Imagem de Rugby">
+    </section>
+
+   
+    <section>
+    <h2>SITUAÇOES DE JOGO</h2>
+   
+    <p class="sombra">TACKLE
+    O tackle é feito agarrando-se o jogador adversário que está portando a bola e conduzindo-o ao chão para que se possa fazer a tentativa de tomada da posse de bola através do ruck.
+    O placador poderá fazer uso do ombro, de modo a travar o avanço do portador da bola, mas a utilização dos braços é obrigatória.
+    RUCK
+    <br><br>
+    Através do ruck, o time adversário pode roubar a posse de bola se empurrar todos os jogadores adversários para atrás da linha da bola.
+    Quando um jogador é placado ele solta a bola e é formado um "ruck", podendo mais jogadores também serem adicionados. Eles se empurram para tentar fazer a bola ficar do lado do time. Os jogadores dentro do "ruck" não podem usar as mãos para empurrar a bola.
+    O ruck é a forma mais comum de se tentar roubar a posse de bola. Quanto mais jogadores o time usar no ruck mais forte ele ficará e maiores serão as chances do time roubar a posse de bola. Em compensação, o time terá menos opções de jogadores livres para passar a bola ou para defender.
+    MAUL
+    <br><br>
+    O maul acontece quando não se consegue fazer um tackle ou placagem.
+    O maul acontece quando três jogadores, sendo um que tem a posse da bola e mais dois, um de cada time, estão em contato.
+    O que difere o ruck do maul é que a bola não se encontra no chão, e sim na mão do jogador. A linha de impedimento também é formada no último pé, do último homem da formação e os jogadores só podem entrar no maul por trás desse último jogador, sendo a entrada pelo lado penalizada.
+    Os jogadores devem manter os ombros e cabeça acima da linha da cintura, e o time que não tem a posse da bola não pode derrubar o maul intencionalmente (regras antigas, pois segundo as novas regras definidas pela IRB já é possível derrubar ajudando assim a equipe que defende). Também não é permitido tirar os jogadores do maul, a não ser que esse seja do time adversário e esteja do lado errado do maul.
+    SCRUM
+    <br><br>
+    Num scrum ou "formação ordenada", pode-se avançar a linha da bola
+    <br><br>
+    Formação de um scrum.
+    O scrum ou "formação ordenada" (ou ainda "peleja") é uma situação frequente no rugby. Geralmente, é usado após uma jogada irregular ou em alguma penalização. Os 8 Avançados das duas equipes formam uns contra os outros. O scrum-half (médio-formação) da equipe que não cometeu a infração insere a bola no meio do "túnel" formado pelas duas primeiras linhas de cada equipe com a finalidade de que os jogadores da sua equipe consigam ganhar (talonar) a bola. As novas regras dizem que qualquer jogador que não faça parte da formação ordenada (composta por avançados e formação) tem que se encontrar a 10 metros da mesma.
+    LINEOUT
+    <br><br>
+    Cobrança de um lateral ou lineout no rugby.
+    Lateral, Lineout ou Alinhamento.
+    Quando a bola sai pela lateral do campo, uma das formas de repô-la em jogo é realizando um alinhamento. O hooker (talonador) da equipe não responsável pelo alinhamento verificado, lança a bola por cima da cabeça no meio das duas linhas formadas por um máximo de oito jogadores Avançados de cada equipe, que tentarão pegar a bola saltando, sem haver disputas corpo-a-corpo.
+    No alinhamento, é permitido que se levantem os jogadores no ar a fim de que seja pega a bola. Normalmente, os levantados são os Segundas-Linhas ou Terceiras-Linhas (Asas) e os que formam o "elevador" são os Pilares, dado que estes, por fazerem parte do pack, tendem a ser mais fortes, enquanto aqueles, corredores, necessitam de maior leveza e agilidade.
+    Alternativamente, quando a bola é posta pela lateral, a equipe adversária pode repô-la rapidamente para dentro do campo, bastando que ela cruze a linha de 5 metros, sem formação de linhas. Caso a reposição não seja imediata, deve-se proceder ao lineout. Isto não é possível se a bola que saiu for trocada ou tocada por alguém.
+    MARK OU MARCO
+    Quando a equipe adversária chuta a bola e o jogador da outra equipe a pega sem cair no chão e dentro da área de 22 metros, ele pode pedir mark ou marco, que consiste na possibilidade de beneficiar de um livre. O jogador que pediu marco tem o direito de dar um chute de onde pegou a bola ou jogar à mão sem interferência do adversário.
+    PENALTY TRY
+    O Penalty Try (try/ensaio de penalidade), quando um jogador é impedido de anotar um try certo por meio de um penal, o árbitro pode anotar um try de penalidade, validando um try para a equipe que sofreu o penal.
+    PENALIDADES
+    Existem vários tipos de penalidades no rugby, com várias formas de serem punidas. Existem 4 formas de se cobrar uma penalidade:
+    •	Punt - Um chute para frente, visando fazer a bola sair pela linha lateral. Neste lineout a equipe que cobrou a penalidade terá a posse de bola.
+    •	Scrum - Formação de um scrum, com a equipe ofendida pondo a bola no túnel
+    •	Run - Simplesmente correr com a posse de bola
+    •	Penalty Goal - Tentativa de chute entre as traves, para marcar pontos
+    <br><br>
+    PLACAGEM PERIGOSA
+    Placagem perigosa, pelas acepções apresentadas, é o tackle irregular ou ilegal, com o objetivo de derrubar o adversário de forma irregular ou perigosa, cometendo faltas.
+    PLACAGEM SEM A BOLA / TACKLE OFF THE BALL 
+    Marcado quando um jogador é placado sem a bola, se for intencional pode ser considerada como atitude antiesportiva quase sempre punida com expulsão.
+    PLACAGEM ALTA / HIGH TACKLE
+    É quando um jogador placa o adversário acima da linha dos ombros. Isso é considerado "jogo perigoso", por isso o jogador leva cartão amarelo ficando fora do jogo durante dez minutos; se o jogador fizer isso duas ou mais vezes, é expulso.
+    PLACAGEM SEM BRAÇOS
+    É sancionada quando o placador apenas utiliza o ombro para derrubar o portador da bola.
+    PLACAGEM NO AR
+    É considerada uma "placagem no ar" quando um jogador tenta placar outro que não se encontra com os pés no chão (por exemplo, salto para apanhar a bola num recomeço de jogo ou num alinhamento lateral).
+    PASS FORWARD 
+    É marcado quando a bola é passada, com as mãos, para a frente. Nesse caso, é formado, no local da penalidade, um scrum.
+    OFFSIDE
+    Se o jogador fica na frente da linha de uma formação ele está offside, com isso seu time sofre uma penalidade. É igualmente penalidade se um jogador tentar disputar uma bola chutada por um colega de equipa que se encontrava atrás dele.
+    KNOCK ON / AVANT
+    Quando o jogador deixa a bola cair para a frente sem intenção e ela bate no chão, ocorre uma penalização chamada knock on. Nesse caso, é formado, no local da penalidade, um scrum.
+    .</p>
+    <img src="https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2015/10/fracanrug.jpg" alt="Imagem de Rugby">
+  </section>
+
+  <section>
+  <h2>ARBITRAGEM</h2>
+
+  <body>
+ 
+  <p class="sombra">No rugby, somente os capitães dos times podem se dirigir ao árbitro.
+  No rugby, existem três ou quatro árbitros, sendo três de campo. O principal árbitro apita e conduz o jogo em campo e outros dois são os laterais como no futebol. Em competições internacionais ou dentro das grandes ligas, existe ainda o árbitro de vídeo, que assiste à partida pela televisão e tem acesso a recursos para conferir jogadas nas quais os três árbitros têm dúvida ou não chegam a um consenso. Serve também para advertir ou punir jogadores que cometeram agressões contra os adversários durante a partida.
+  Algo interessante no rugby é que os jogadores não podem falar, discutir e jamais insultar os árbitros. (É necessário que todos os jogadores respeitem esta regra fundamental). Somente os capitães podem se dirigir ao árbitro, que pode punir um jogador e/ou o time caso tal regra seja desrespeitada. 
+  Existem dois tipos de cartões:
+  Cartão amarelo — expulsão temporária por 10 minutos
+  Cartão vermelho — expulsão permanente do jogo
+  <br><br>
+  AS POSIÇÕES DE CADA JOGADOR DE RUGBY, COM SEU BIÓTIPO E SUAS FUNÇÕES 
+  <br><br>
+  Primeiro ponto:
+  As posições no rugby são identificadas pelo número que os jogadores vestem. Sendo assim, cada número corresponde a uma posição, por exemplo: Pilar Esquerdo veste a camisa 1.
+  <br><br>
+  Segundo ponto:
+  As posições no rugby são divididas em duas categorias, os Forwards (jogadores grandes) e os Backs (velocistas).
+  <br><br>
+   Forwards:
+   <br><br>
+  Camisas 1 e 3: Pilar esquerdo e Pilar direito
+  Os Pilares são os jogadores de frente, mais pesados da equipe, eles garantem a posse de bola. 
+  Fazem parte da linha de frente do scrum, dando suporte para o Hooker do time puxar a bola e também no lateral, para os segundas linhas.
+  <br><br>
+  Camisa 2: Hooker
+  Também faz parte da linha de frente do scrum, mas diferente dos Pilares ele irá puxar a bola com o pé após o início. No lateral ele é quem joga a bola para a disputa pela bola. O Hooker também é uma posição que é necessário ter um porte físico grande.
+  <br><br>
+  Camisas 4 e 5: Segunda Linha
+  Os dois de segunda linha precisam ser ao mesmo tempo fortes, mas também velozes. Os segunda linha são extremamente importante, pois no scrum, possuem a missão do “empurrão” e no lateral, ficam com a responsabilidade por pegar a bola em cima, ele são levantados pelos pilares no lateral.
+  <br><br>
+  Camisas 6 e 7: Asas
+  <br><br>
+  Os Asas serão os responsáveis por proteger o time, serão eles, entre as posições no rugby, que farão maior quantidade de tackles durante o jogo, isso porque são muito fortes e ágeis, eles podem também fazer parte da linha numa tentativa de ataque e pular no lateral.
+  <br><br>
+  Camisa 8: Oitavo
+  <br><br>
+  O Oitavo é muito semelhante aos Asas, muito forte também, mas é ele que para pegar as bolas que os jogadores de segunda linha não conseguem pegar, no scrum. 
+  <br><br>
+  Backs!
+  <br><br>
+  Camisa 9: Scrum-half
+  <br><br>
+  Essa posição são jogadores que irão junto ao Abertura organizar o jogo, são pequenos, mas sua agilidade e habilidade compensa no jogo, são responsáveis por retirar a bola dos rucks e dos scrums, outro ponto forte do Scrum-Half são os chutes, possuem muita técnica nesse fundamento, isso para em caso de “desafogar” uma pressão sofrida pelo adversário.
+  <br><br>
+  Camisa 10: Abertura
+  <br><br>
+  Como todo grande camisa 10, o Abertura é o organizador do jogo, responsável pela maior quantidade de pontos de um time nos chutes e conversões. Além disso, é o abertura quem vai ditar a direção e o ritmo de uma partida.
+  <br><br>
+  Camisas 11 e 14: Pontas
+  <br><br>
+  São os grandes finalizadores de jogadas do time, responsáveis pela maior quantidade de tries. Suas principais características são sua velocidade, e habilidade na corrida e muita força para conseguir quebrar os tackles.
+  <br><br>
+  Camisas 12 e 13: Centros
+  <br><br>
+  Os Centros são jogadores velozes como os pontas, mas normalmente possuem mais força, então são os responsáveis por “furar” as linhas adversárias.
+  <br><br>
+ Camisa 15: Fullback
+ <br><br>
+  E por último o Fullback, sua característica é a força e a velocidade para finalizar e fazer tries, quebrando tackles e na defesa, é o último homem do campo, será dele a missão dos tackles e evitar os tries. </P>
+
+  <img src="https://www.galiciaec.com.br/wp-content/uploads/2018/09/arbitragem.jpg" alt="Imagem de Rugby">
+</section>
+
+<section>
+<h2>REFLEXÃO
+
+</h2>
+
+<p class="sombra">“O Rugby estimula o trabalho em equipe, compreensão, cooperação além de respeito pelos atletas companheiros. Seus pilares fundamentais permanecem o prazer de participar, a coragem e habilidade que o jogo exige, o amor por um esporte coletivo que enriquece a vida de todos os envolvidos; e as amizades criadas para sempre através do interesse compartilhado pelo jogo”. (WORLD RUGBY).
+“Em 2009, os países membros do World Rugby identificaram Integridade, Paixão, Solidariedade, Disciplina e Respeito como as características definidoras na construção do caráter do rugby. Estes são agora reconhecidos como valores do rugby e foram incorporados ao World Rugby Playing Charter, um documento orientador que visa preservar o caráter único e ethos do rugby dentro e fora do campo. Esses valores fundamentais permitem que os participantes entendam imediatamente a natureza do rugby e o que o diferencia de outros esportes, sendo praticado por pessoas de todos os tamanhos e formas”. (WORLD RUGBY).
+
+
+
+</p>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbPVPED-Rn4nhvUvpM3ClzgGoEPztoVKbQ_MxY1s1HbxiBXIb54oN6oofnoIAz1DnrFcw&usqp=CAU" alt="Imagem de Rugby">
+</section>
+
+
+
+  </main>
+  
+  <footer>
+
+    <title>Exemplo de alteração de tamanho de texto</title>
+    <style>
+        .texto-grande {
+            font-size: 24px;
+        }
+        
+        .texto-pequeno {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="texto-grande">Colaboradores</h1>
+    <p class="texto-pequeno">.Uewerton Santos de Moura...</p>
+    <p class="texto-pequeno">.Luiz Otávio Quirino Baza de Araujo...</p>
+    <p class="texto-pequeno">.Layon Lima Ferreira de Andrade...</p>
+    <p class="texto-pequeno">. Prof... Laércio Carneiro...</p> 
+
+
+    </section>
+    
+   <p></p>
+   
+   </footer>
+    
+
+  <div class="contact-area" onclick="toggleContactForm()">Área de Contato</div>
+
+  <div class="contact-form">
+    <h3>Entre em contato</h3>
+    <input type="text" placeholder="Nome">
+    <input type="text" placeholder="E-mail">
+    <textarea placeholder="Mensagem"></textarea>
+    <button type="submit">Enviar</button>
+  </div>
+</body>
+</html>
+
+
+<!-- Início do cabeçalho -->
+<header>
+ 
+
+<!-- Fim do cabeçalho -->
+
+<style>
+  .centralizado {
+    text-align: center;
+  }
+
+</style>
+<p class="centralizado">© 2023 Rugby Cepav. Todos os direitos reservados.</p>
+</header>
+
